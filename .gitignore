@@ -5,3 +5,7 @@
 !*.jpg
 !*.png
 !requirements*
+!tests/
+!tests/**
+tests/__pycache__/
+!pytest.ini

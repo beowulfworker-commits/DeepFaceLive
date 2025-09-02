@@ -45,6 +45,7 @@ def get_process_priority() -> ProcessPriority:
                 10  : ProcessPriority.BELOW_NORMAL,
                 20  : ProcessPriority.IDLE        ,
                 }[_niceness]
+        return prio
     elif is_darwin:
         prio = {-10 : ProcessPriority.HIGH        ,
                 -5  : ProcessPriority.ABOVE_NORMAL,
