@@ -18,10 +18,10 @@ elif platform.system() == 'Darwin':
 _niceness = 0
 
 class ProcessPriority(IntEnum):
-    HIGH = 4,
-    ABOVE_NORMAL = 3,
-    NORMAL = 2,
-    BELOW_NORMAL = 1,
+    HIGH = 4
+    ABOVE_NORMAL = 3
+    NORMAL = 2
+    BELOW_NORMAL = 1
     IDLE = 0
 
 def get_process_priority() -> ProcessPriority:
