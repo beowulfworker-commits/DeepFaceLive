@@ -1,0 +1,9 @@
+h5py==3.14.0
+numexpr==2.11.0
+numpy==1.21.6
+onnx==1.14.0
+onnxruntime==1.15.1
+opencv-contrib-python==4.8.0.74
+PyQt6==6.5.1
+torch==1.13.1
+torchvision==0.14.1

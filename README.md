@@ -290,6 +290,15 @@ Windows 10
 </td></tr>
 <tr><td colspan=2 align="center">
 
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+</td></tr>
+<tr><td colspan=2 align="center">
+
 ## Documentation
 
 </td></tr>
