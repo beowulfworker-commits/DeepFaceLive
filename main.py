@@ -33,6 +33,7 @@ def main():
 
     def run_DeepFaceLive(args):
         userdata_path = Path(args.userdata_dir)
+        userdata_path.mkdir(parents=True, exist_ok=True)
         lib_appargs.set_arg_bool('NO_CUDA', args.no_cuda)
 
         print('Running DeepFaceLive.')
@@ -40,7 +41,7 @@ def main():
         DeepFaceLiveApp(userdata_path=userdata_path).run()
 
     p = run_subparsers.add_parser('DeepFaceLive')
-    p.add_argument('--userdata-dir', default=None, action=fixPathAction, help="Workspace directory.")
+    p.add_argument('--userdata-dir', required=True, action=fixPathAction, help="Path to workspace directory.")
     p.add_argument('--no-cuda', action="store_true", default=False, help="Disable CUDA.")
     p.set_defaults(func=run_DeepFaceLive)
 
