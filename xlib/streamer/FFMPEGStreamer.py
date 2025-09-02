@@ -48,5 +48,6 @@ class FFMPEGStreamer:
         
         try:
             self._ffmpeg_proc.stdin.write(img)
-        except:
+        except Exception as e:
+            print(f'FFMPEGStreamer push_frame error: {e}')
             self.stop()

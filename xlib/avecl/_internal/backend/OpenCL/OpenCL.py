@@ -12,8 +12,8 @@ def dll_import(dll_name):
     if dll is None:
         try:
             dll = ctypes.cdll.LoadLibrary(find_library(dll_name))
-        except:
-            pass
+        except Exception as e:
+            print(f'Failed to load {dll_name}: {e}')
         if dll is None:
             raise RuntimeError(f'Unable to load {dll_name} library.')
         dlls_by_name[dll_name] = dll
@@ -136,7 +136,8 @@ class CLRESULT(cl_int):
     def __str__(self):
         try:
             return f'CLRESULT ({str(CLERROR(self.value))})'
-        except:
+        except Exception as e:
+            print(f'CLRESULT __str__ conversion error: {e}')
             return f'CLRESULT ({self.value})'
     def __repr__(self):
         return self.__str__()

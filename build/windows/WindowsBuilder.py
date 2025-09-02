@@ -112,8 +112,8 @@ class WindowsFolderBuilder:
                     if progress_bar:
                         print(f'Downloading {file_size_dl} / {url_size}', end='\r')
 
-            except:
-                print(f'Unable to download {url}')
+            except Exception as e:
+                print(f'Unable to download {url}: {e}')
                 raise
             break
 

@@ -114,7 +114,8 @@ def _initialize_ort_devices_info():
                 for libname in libnames:
                     try:
                         cuda = ctypes.CDLL(libname)
-                    except:
+                    except Exception as e:
+                        print(f'Failed to load CUDA library {libname}: {e}')
                         continue
                     else:
                         break

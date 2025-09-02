@@ -141,7 +141,8 @@ class FormattedIOBase:
         if suppress_error:
             try:
                 obj = pickle.load(self)
-            except:
+            except Exception as e:
+                print(f'Unpickling error: {e}')
                 obj = None
         else:
             obj = pickle.load(self)

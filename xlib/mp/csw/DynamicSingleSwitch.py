@@ -52,7 +52,8 @@ class _DynamicSingleSwitchBase:
         if idx_or_choice.__class__ != int:
             try:
                 idx_or_choice = choices.index(idx_or_choice)
-            except:
+            except Exception as e:
+                print(f'Choice lookup error: {e}')
                 # Choice not in list
                 return None
         if idx_or_choice < 0 or idx_or_choice >= self._choices_len:
