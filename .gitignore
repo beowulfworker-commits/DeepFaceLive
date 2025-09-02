@@ -5,3 +5,26 @@
 !*.jpg
 !*.png
 !requirements*
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.env/
+venv/
+.venv/
+
+# Project-specific directories
+workspace/
+
+# IDE files
+.vscode/
+.idea/
