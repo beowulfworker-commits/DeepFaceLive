@@ -89,8 +89,8 @@ class MPWorker:
                         self._process_working_count -= 1
                     else:
                         self._on_host_sub_message(process_id, name, *args, **kwargs)
-            except:
-                ...
+            except Exception as e:
+                print(f'_host_process_messages error: {e}')
 
     def _send_msg(self, name, *args, process_id=-1, **kwargs):
         """
@@ -103,8 +103,8 @@ class MPWorker:
             for i, pipe in enumerate(self._pipes):
                 if process_id == -1 or i == process_id:
                     pipe.send( (name, args, kwargs) )
-        except:
-            ...
+        except Exception as e:
+            print(f'_send_msg error: {e}')
 
     def _sub_process(self, process_id, process_count, pipe, sub_args):
         self._process_id = process_id
@@ -125,7 +125,7 @@ class MPWorker:
                     else:
                         try:
                             self._on_sub_host_message(name, *args, **kwargs)
-                        except:
+                        except Exception as e:
                             print(f'Error during handling host message {name} : {traceback.format_exc()}')
 
                     if not pipe.poll():

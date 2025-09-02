@@ -18,8 +18,8 @@ def dll_import(dll_name):
     if dll is None:
         try:
             dll = ctypes.cdll.LoadLibrary(find_library(dll_name))
-        except:
-            pass
+        except Exception as e:
+            print(f'Failed to load {dll_name}: {e}')
 
         dlls_by_name[dll_name] = dll
 
@@ -118,7 +118,8 @@ class MMRESULT(c_ulong):
     def __str__(self):
         try:
             return f'MMRESULT ({str(MMERROR(self.value))})'
-        except:
+        except Exception as e:
+            print(f'MMRESULT __str__ conversion error: {e}')
             return f'MMRESULT ({self.value})'
     def __repr__(self):
         return self.__str__()
@@ -138,7 +139,8 @@ class HRESULT(c_ulong):
     def __str__(self):
         try:
             return f'HRESULT ({str(ERROR(self.value))})'
-        except:
+        except Exception as e:
+            print(f'HRESULT __str__ conversion error: {e}')
             return f'HRESULT ({self.value})'
     def __repr__(self):
         return self.__str__()

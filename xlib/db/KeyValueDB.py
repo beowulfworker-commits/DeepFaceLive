@@ -32,7 +32,8 @@ class KeyValueDB:
                             if obj is not None:
                                 key, data = obj
                                 d[key] = data
-        except:
+        except Exception as e:
+            print(f'Failed to load database {self._filepath}: {traceback.format_exc()}')
             d = {}
         self._data = d
         
@@ -68,7 +69,7 @@ class KeyValueDB:
                         f.write_pickled( (key, d[key]) )
 
                     f.truncate()
-            except:
+            except Exception as e:
                 print(f'Unable to save the data. {traceback.format_exc()}')
 
     def finish_pending_jobs(self):

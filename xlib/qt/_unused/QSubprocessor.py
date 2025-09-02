@@ -116,8 +116,8 @@ class QSubprocessor(object):
                 cli.host_dict = host_dict
 
                 self.clis.append (cli)
-            except:
-                raise Exception (f"Unable to start subprocess {name}. Error: {traceback.format_exc()}")
+            except Exception as e:
+                raise Exception (f"Unable to start subprocess {name}. Error: {traceback.format_exc()}") from e
 
         if len(self.clis) == 0:
             raise Exception ("Unable to start QSubprocessor '%s' " % (self.name))

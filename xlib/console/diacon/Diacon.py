@@ -196,7 +196,8 @@ class DlgNumber(Dlg):
                 if self._on_value is not None:
                     self._on_value(self, v)
                 return EDlgMode.HANDLED
-            except:
+            except Exception as e:
+                print(f'Invalid number input: {e}')
                 return EDlgMode.WRONG_INPUT
 
         return result

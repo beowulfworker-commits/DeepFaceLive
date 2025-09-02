@@ -159,8 +159,8 @@ class FaceAlignerTrainerApp:
                         if model_optimizer_state_dict is not None:
                             model_optimizer.load_state_dict(model_optimizer_state_dict)
 
-                    except:
-                        print('Network weights have been reseted.')
+                    except Exception as e:
+                        print(f'Network weights have been reseted due to error: {e}')
                         self._model_data['model_state_dict'] = None
                         self._model_data['model_optimizer_state_dict'] = None
                         continue

@@ -89,7 +89,7 @@ def set_process_priority(prio : ProcessPriority):
                    }[prio]
 
             _niceness = os.nice(val)
-    except:
+    except Exception as e:
         print(f'set_process_priority error: {traceback.format_exc()}')
 
 def set_timer_resolution(milliseconds : int) -> bool:

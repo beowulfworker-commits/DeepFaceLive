@@ -35,5 +35,5 @@ def imwrite(filepath, img, *args):
         try:
             with open(filepath, "wb") as stream:
                 stream.write( buf )
-        except:
-            pass
+        except Exception as e:
+            print(f'Failed to write image {filepath}: {e}')
